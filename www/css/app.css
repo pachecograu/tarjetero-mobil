@@ -1,0 +1,70 @@
+/* Your app styles here */
+.icon-app {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 48px;
+  height: 48px;
+  border: none;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  font: normal medium/normal Arial, Helvetica, sans-serif;
+  color: rgba(255,255,255,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: rgb(46, 204, 113);
+  -webkit-box-shadow: 5px 5px 0 0 #27ae60 ;
+  box-shadow: 5px 5px 0 0 #27ae60 ;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+}
+
+.icon-app::before {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 62px;
+  height: 62px;
+  position: absolute;
+  content: "";
+  top: -1px;
+  left: -7px;
+  border: none;
+  -webkit-border-radius: 6px 48px 12px 3px / 12px 48px 6px 3px;
+  border-radius: 6px 48px 12px 3px / 12px 48px 6px 3px;
+  font: normal medium/normal Arial, Helvetica, sans-serif;
+  color: rgba(0,0,0,0.9);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: #2ecc71;
+  -webkit-box-shadow: 0 8px 0 0 #27ae60 ;
+  box-shadow: 0 8px 0 0 #27ae60 ;
+  text-shadow: none;
+  -webkit-transform: rotateY(54deg) rotateZ(-45deg)   ;
+  transform: rotateY(54deg) rotateZ(-45deg)   ;
+}
+
+.icon-app::after {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  content: "";
+  top: 55%;
+  right: 0;
+  left: 50%;
+  margin: -10px 0px -7px -10px;
+  border: none;
+  -webkit-border-radius: 16px;
+  border-radius: 16px;
+  font: normal medium/normal Arial, Helvetica, sans-serif;
+  color: rgba(0,0,0,0.9);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: rgba(255,255,255,1);
+  -webkit-box-shadow: 5px 5px 0 0 #27ae60 inset;
+  box-shadow: 5px 5px 0 0 #27ae60 inset;
+  text-shadow: none;
+}

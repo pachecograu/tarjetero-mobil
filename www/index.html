@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!--
+  Customize this policy to fit your own app's needs. For more guidance, see:
+      https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+  Some notes:
+      * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+      * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+      * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+          * Enable inline JS: add 'unsafe-inline' to default-src
+  -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#2196f3">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>My App</title>
+
+  <link rel="stylesheet" href="framework7/css/framework7.min.css">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body ng-app="pulos" ng-controller="profileCtrl">
+  <div id="app">
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar"></div>
+    <!-- Left panel with cover effect-->
+    <div class="panel panel-left panel-cover theme-dark">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="title"><img src="img/logo.png" style="width: 24px;position: relative;top: 5px;"> <span>Pulos</span></div>
+            </div>
+          </div>
+          <div class="page-content">
+            <div class="block">Left panel content goes here</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Right panel with reveal effect-->
+    <div class="panel panel-right panel-reveal theme-dark">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="title">Right Panel</div>
+            </div>
+          </div>
+          <div class="page-content">
+            <div class="block">Right panel content goes here</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Your main view, should have "view-main" class -->
+    <div class="view view-main ios-edges">
+      <!-- Page, data-name contains page name which can be used in callbacks -->
+      <div class="page" data-name="home">
+        <!-- Top Navbar -->
+        <style media="screen">
+          .md .navbar:after {
+            background: none !important;
+          }
+        </style>
+        <div class="navbar" style="background:linear-gradient(to bottom,#ababab,transparent)">
+          <div class="navbar-inner">
+            <div class="left">
+              <a href="#" class="link icon-only panel-open" data-panel="left">
+                <i class="icon f7-icons ios-only">menu</i>
+                <i class="icon material-icons md-only">menu</i>
+              </a>
+            </div>
+            <div class="title sliding" style="width:100%">
+              <form class="searchbar" style="background:none">
+                <div class="searchbar-inner">
+                  <div class="searchbar-input-wrap">
+                    <input type="search" placeholder="Buscar..." style="font-size: 12px;padding: 0px 41px;border-bottom: 1px solid #d5d5d5;">
+                    <i class="searchbar-icon"></i>
+                    <span class="input-clear-button"></span>
+                  </div>
+                  <span class="searchbar-disable-button">Cancel</span>
+                </div>
+              </form>
+            </div>
+            <div class="right">
+              <a href="#" class="link icon-only panel-open" data-panel="right">
+                <i class="icon f7-icons ios-only">menu</i>
+                <i class="icon material-icons md-only">place</i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Toolbar-->
+        <!-- <div class="toolbar">
+          <div class="toolbar-inner">
+            <a href="#" class="link">Left Link</a>
+            <a href="#" class="link">Right Link</a>
+          </div>
+        </div> -->
+        <!-- Scrollable page content-->
+        <div class="page-content">
+          <!-- Searchbar backdrop -->
+          <div class="searchbar-backdrop"></div>
+          <style media="screen">
+            .demo-facebook-card .card-header {
+              display: block;
+              padding: 10px;
+            }
+
+            .demo-facebook-card .demo-facebook-avatar {
+              float: left;
+            }
+
+            .demo-facebook-card .demo-facebook-name {
+              margin-left: 44px;
+              font-size: 14px;
+              font-weight: 500;
+            }
+
+            .demo-facebook-card .demo-facebook-date {
+              margin-left: 44px;
+              font-size: 13px;
+              color: #8e8e93;
+            }
+          </style>
+          <div ng-repeat="n in [1,2,3]" class="card demo-facebook-card">
+            <div class="card-header" style="padding: 4px;">
+              <a href="/profile/" class="demo-facebook-avatar"><img src="img/photo_profile.jpg" width="34" height="34" /></a>
+              <div class="demo-facebook-name">John Doe</div>
+              <div class="demo-facebook-date">Monday at 2:15 PM</div>
+            </div>
+            <div class="card-content card-content-padding" style="background-image: url(img/photo_public.jpg);background-size: cover;min-height: 139px;padding: 0.1px;">
+              <p style="background:linear-gradient(to bottom,#000000,transparent);color:white;margin-bottom: 45px;padding: 5px;">
+                What a nice photo i took yesterday!
+              </p>
+              <!-- <img src="http://lorempixel.com/1000/700/nature/8/" width="100%" /> -->
+              <p class="likes" style="color:white;position:absolute;bottom:1px;background:linear-gradient(to top,#000000,transparent);width: 95%;padding-left: 16px;">
+                <span><i class="f7-icons" style="font-size: 14px;">heart_fill</i>: 112</span>
+                <span><i class="f7-icons" style="font-size: 14px;">chat_fill</i>: 43</span>
+              </p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="link"><i class="f7-icons" style="font-size: 20px;">heart</i></a>
+              <a href="#" class="link"><i class="f7-icons" style="font-size: 20px;">chat</i></a>
+              <a href="#" class="link"><i class="f7-icons" style="font-size: 20px;">social_rss</i></a>
+            </div>
+          </div>
+          <div class="block block-strong">
+            <p>Here is your blank Framework7 app. Let's see what we have here.</p>
+          </div>
+
+          <div class="block-title">Navigation</div>
+          <div class="list">
+            <ul>
+              <li>
+                <a href="/about/" class="item-content item-link">
+                  <div class="item-inner">
+                    <div class="item-title">About</div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="/form/" class="item-content item-link">
+                  <div class="item-inner">
+                    <div class="item-title">Form</div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="block-title">Modals</div>
+          <div class="block block-strong">
+            <div class="row">
+              <div class="col-50">
+                <a href="#" class="button button-raised button-fill popup-open" data-popup="#my-popup">Popup</a>
+              </div>
+              <div class="col-50">
+                <a href="#" class="button button-raised button-fill login-screen-open" data-login-screen="#my-login-screen">Login Screen</a>
+              </div>
+              <div class="col-50">
+                <a href="/login/" class="button button-raised button-fill" data-login-screen="#my-login-screen">Login Screen</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="block-title">Panels</div>
+          <div class="block block-strong">
+            <div class="row">
+              <div class="col-50">
+                <a href="#" class="button button-raised button-fill panel-open" data-panel="left">Left Panel</a>
+              </div>
+              <div class="col-50">
+                <a href="#" class="button button-raised button-fill panel-open" data-panel="right">Right Panel</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="block-title searchbar-hide-on-search">Page Loaders & Router</div>
+          <div class="list links-list searchbar-hide-on-search">
+            <ul>
+              <li>
+                <a href="/page-loader-template7/vladimir/123/about-me/1/?start=0&end=30#top">Template7 Page</a>
+              </li>
+              <li>
+                <a href="/page-loader-component/vladimir/123/about-me/1/?start=0&end=30#top">Component Page</a>
+              </li>
+              <li>
+                <a href="/load-something-that-doesnt-exist/">Default Route (404)</a>
+              </li>
+              <li>
+                <a href="/request-and-load/user/123456/">Request Data & Load</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup" id="my-popup">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="title">Popup</div>
+              <div class="right">
+                <a href="#" class="link popup-close">Close</a>
+              </div>
+            </div>
+          </div>
+          <div class="page-content">
+            <div class="block">
+              <p>Popup content goes here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login Screen -->
+    <div class="login-screen" id="my-login-screen">
+      <div class="view">
+        <div class="page">
+          <div class="page-content login-screen-content">
+            <div class="login-screen-title">Login</div>
+            <div class="list">
+              <ul>
+                <li class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Username</div>
+                    <div class="item-input-wrap">
+                      <input type="text" name="username" placeholder="Your username">
+                    </div>
+                  </div>
+                </li>
+                <li class="item-content item-input">
+                  <div class="item-inner">
+                    <div class="item-title item-label">Password</div>
+                    <div class="item-input-wrap">
+                      <input type="password" name="password" placeholder="Your password">
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="list">
+              <ul>
+                <li>
+                  <a href="#" class="item-link list-button login-button">Sign In</a>
+                </li>
+              </ul>
+              <div class="block-footer">Some text about login information.<br>Click "Sign In" to close Login Screen</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Cordova -->
+  <!--
+  <script src="cordova.js"></script>
+  -->
+
+  <!-- Framework7 library -->
+  <script src="framework7/js/framework7.min.js"></script>
+
+  <!-- angular js -->
+  <script src="bower_components/angular/angular.min.js" charset="utf-8"></script>
+
+  <!-- App routes -->
+  <script src="js/routes.js"></script>
+
+  <!-- Your custom app scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/controllers/loginCtrl.js" charset="utf-8"></script>
+  <script src="js/controllers/profileCtrl.js" charset="utf-8"></script>
+</body>
+
+</html>
