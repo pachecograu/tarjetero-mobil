@@ -1,0 +1,78 @@
+<div class="page" data-name="home">
+  <!-- Top Navbar -->
+  <style media="screen">
+    .md .navbar:after {
+      background: none !important;
+    }
+  </style>
+  <div class="navbar" style="background:linear-gradient(to bottom,#ababab,transparent)">
+    <div class="navbar-inner">
+      <div class="left">
+        <a href="#" class="link icon-only panel-open" data-panel="left">
+          <i class="icon material-icons">menu</i>
+        </a>
+      </div>
+      <div class="title sliding" style="width:100%">
+        <form class="searchbar" style="background:none">
+          <div class="searchbar-inner">
+            <div class="searchbar-input-wrap">
+              <input type="search" placeholder="Buscar..." style="font-size: 12px;padding: 0px 41px;border-bottom: 1px solid #d5d5d5;">
+              <i class="searchbar-icon"></i>
+              <span class="input-clear-button"></span>
+            </div>
+            <span class="searchbar-disable-button">Cancel</span>
+          </div>
+        </form>
+      </div>
+      <div class="right">
+        <a ui-sref="map" class="link icon-only">
+          <i class="icon material-icons">place</i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- Toolbar-->
+  <!-- <div class="toolbar">
+    <div class="toolbar-inner">
+      <a href="#" class="link">Left Link</a>
+      <a href="#" class="link">Right Link</a>
+    </div>
+  </div> -->
+  <!-- Scrollable page content-->
+  <div class="page-content">
+    <!-- Searchbar backdrop -->
+    <div class="searchbar-backdrop"></div>
+    <div ng-repeat="biz in bizs track by $index" class="card demo-facebook-card">
+      <i class="icon material-icons animated {{iLiked[n].animate}}" ng-show="iLiked[n].show"
+        style="font-size: 128px;position: absolute;left: 31%;top: 69px;z-index: 17;color: red;">favorite</i>
+      <div class="card-header" style="padding: 4px;">
+        <a ui-sref="profilebiz({biz: biz._id})" class="demo-facebook-avatar">
+          <!-- <img ng-src="{{url}}{{biz.photoprofile}}" width="34" height="34" /> -->
+          <div class="avatar-home" style="background-image: url({{url}}{{biz.photoprofile}});"></div>
+          </a>
+        <div class="demo-facebook-name">{{biz.name}}</div>
+        <div class="demo-facebook-date">Monday at 2:15 PM</div>
+      </div>
+      <div class="card-content card-content-padding" style="background-image: url(img/photo_public.jpg);background-size: cover;min-height: 139px;padding: 0.1px;">
+        <p style="background:linear-gradient(to bottom,#000000,transparent);color:white;margin-bottom: 45px;padding: 5px;">
+          {{biz.description}}
+        </p>
+        <!-- <img src="http://lorempixel.com/1000/700/nature/8/" width="100%" /> -->
+        <p class="likes" style="color:white;position:absolute;bottom:1px;background:linear-gradient(to top,#000000,transparent);width: 95%;padding-left: 16px;">
+          <span><i class="icon material-icons" style="font-size: 14px;">favorite</i> 112</span>
+          <span><i class="icon material-icons" style="font-size: 14px;">chat</i> 43</span>
+        </p>
+      </div>
+      <div class="card-footer">
+        <a href="#" class="link" ng-click="iLike(n)">
+          <i class="icon material-icons" ng-hide="iLiked[n].iLiked" style="font-size: 20px;">favorite</i>
+          <i class="icon material-icons" ng-show="iLiked[n].iLiked"
+            style="font-size: 20px;color: red;">favorite</i>
+        </a>
+        <a href="#" class="link popup-open" data-popup="#comments"><i class="icon material-icons" style="font-size: 20px;">chat</i></a>
+        <a href="#" class="link"><i class="icon material-icons" style="font-size: 20px;">tap_and_play</i></a>
+      </div>
+    </div>
+
+  </div>
+</div>

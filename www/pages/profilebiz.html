@@ -1,0 +1,204 @@
+<div class="page" data-name="profile">
+  <div class="navbar no-shadow color-white">
+    <div class="navbar-bg bg-color-blue"></div>
+    <div class="navbar-inner sliding">
+      <div class="left">
+        <a class="link back" ui-sref="home">
+          <i class="icon icon-back"></i>
+          <span class="ios-only">Back</span>
+        </a>
+      </div>
+      <div class="title text-color-white">Perfil</div>
+      <div class="right">
+        <a class="link back">
+          <i class="icon material-icons">favorite</i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="page-content">
+    <div class="card demo-card-header-pic" style="margin: 0px;">
+      <div style="background-image: url(img/photo_public.jpg);background-size: cover;"
+        class="card-header align-items-flex-end">
+        {{profile.name}}
+      </div>
+      <div class="card-content card-content-padding" style="background: #eee">
+        <div class="fab" style="top: -30px;right: 28px;">
+          <a href="#">
+            <i class="icon material-icons">directions</i>
+          </a>
+          <p style=" font-size: 11px; text-align: center;">Direccion</p>
+        </div>
+        <p style="width: 80%; font-size: 11px;">
+          {{profile.description}}
+        </p>
+        <p>
+          Calificacion: 3.0
+          <i class="icon material-icons" ng-repeat="n in [1,2,3]">star</i>
+        </p>
+      </div>
+      <div class="card-content card-content-padding" style="border-top: 1px solid #eee;">
+        <div class="row">
+          <div class="col" style="text-align: center">
+            <a class="button" style="height: initial;text-transform: none;width: fit-content;margin: auto;">
+              <div class="row">
+                <div class="col-100"><i class="icon material-icons" style="font-size: 30px;">star</i></div>
+                <div class="col-100" style="font-size:12px">Calificar</div>
+              </div>
+            </a>
+          </div>
+          <div class="col" style="text-align: center">
+            <a class="button" style="height: initial;text-transform: none;width: fit-content;margin: auto;">
+              <div class="row">
+                <div class="col-100"><i class="icon material-icons" style="font-size: 30px;">bookmark_border</i>
+                </div>
+                <div class="col-100" style="font-size:12px">Guardar</div>
+              </div>
+            </a>
+          </div>
+          <div class="col" style="text-align: center">
+            <a class="button" style="height: initial;text-transform: none;width: fit-content;margin: auto;">
+              <div class="row">
+                <div class="col-100"><i class="icon material-icons" style="font-size: 30px;">share</i></div>
+                <div class="col-100" style="font-size:12px">Compartir</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card-content card-content-padding" style="border-top: 1px solid #eee;">
+        <div class="list">
+          <ul>
+            <li>
+              <a href="#" class="item-link list-button" style="font-size: 14px">
+                <div class="row">
+                  <div class="col-10">
+                    <i class="icon material-icons" style="font-size: 20px;">work</i>
+                  </div>
+                  <div class="col-90">
+                    {{profile.profession}}
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="item-link list-button" style="font-size: 14px">
+                <div class="row">
+                  <div class="col-10">
+                    <i class="icon material-icons" style="font-size: 20px;">room</i>
+                  </div>
+                  <div class="col-90">
+                    {{profile.address.value}}
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="item-link list-button" style="font-size: 14px">
+                <div class="row">
+                  <div class="col-10">
+                    <i class="icon material-icons" style="font-size: 20px;">link</i>
+                  </div>
+                  <div class="col-90">
+                    {{profile.web}}
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="item-link list-button" style="font-size: 14px">
+                <div class="row">
+                  <div class="col-10">
+                    <i class="icon material-icons" style="font-size: 20px;">email</i>
+                  </div>
+                  <div class="col-90">
+                    {{profile.email}}
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li ng-repeat="tels in profile.contacts track by $index">
+              <a href="#" class="item-link list-button" style="font-size: 14px">
+                <div class="row">
+                  <div class="col-10">
+                    <i class="icon material-icons" ng-if="tels.tipo == 1" style="font-size: 20px;">call</i>
+                    <i class="icon material-icons" ng-if="tels.tipo == 2"
+                      style="font-size: 20px;">stay_current_portrait</i>
+                  </div>
+                  <div class="col-90">
+                    {{tels.value}}
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="item-link list-button" style="font-size: 14px">
+                <div class="row">
+                  <div class="col-10">
+                    <i class="icon material-icons" style="font-size: 20px;">bookmark</i>
+                  </div>
+                  <div class="col-90">
+                    <div class="chip color-blue" ng-repeat="cat in profile.idCategory track by $index">
+                      <div class="chip-label">{{cat.name}}</div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-content card-content-padding" style="border-top: 1px solid #eee;background: #eee;">
+        <div class="row">
+          <div class="col" style="text-align: center" ng-repeat="net in profile.networks track by $index">
+            <div class="row">
+              <div class="col-100">
+                <!-- <i class="icon material-icons" style="font-size: 18px;">restaurant</i> -->
+                <img src="../img/svg/001-facebook.svg" style="width: 30px;" ng-if="net.tipo == 1">
+                <img src="../img/svg/013-twitter.svg" style="width: 30px;" ng-if="net.tipo == 2">
+                <img src="../img/svg/011-instagram.svg" style="width: 30px;" ng-if="net.tipo == 3">
+                <img src="../img/svg/006-skype.svg" style="width: 30px;" ng-if="net.tipo == 4">
+                <img src="../img/svg/010-linkedin.svg" style="width: 30px;" ng-if="net.tipo == 5">
+              </div>
+              <div class="col-100">
+                {{net.value}}
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col" style="text-align: center">
+            <div class="row">
+              <div class="col-100">
+                <i class="icon material-icons" style="font-size: 18px;">hot_tub</i>
+              </div>
+              <div class="col-100">
+                Jacuzzi
+              </div>
+            </div>
+          </div>
+          <div class="col" style="text-align: center">
+            <div class="row">
+              <div class="col-100">
+                <i class="icon material-icons" style="font-size: 18px;">local_bar</i>
+              </div>
+              <div class="col-100">
+                Bar
+              </div>
+            </div>
+            </a>
+          </div> -->
+        </div>
+      </div>
+      <div class="card-content card-content-padding" style="border-top: 1px solid #eee;">
+        <div class="row">
+          <div class="col" style="text-align: center">
+            <a class="button popup-open" data-popup="#comments"
+              style="height: initial;text-transform: none;width: fit-content;margin: auto;">
+              <i class="icon material-icons" style="font-size: 30px;">rate_review</i>
+              Escribir comentario
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
